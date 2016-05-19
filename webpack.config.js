@@ -3,15 +3,22 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.join(__dirname, '/app/index.html'),
   filename: 'index.html',
-  inject: 'body'
+  inject: 'body',
+  cache: false
 });
 
 module.exports = {
 	context: path.join(__dirname, '/app'),
-	entry: {
-		javascript: './app.jsx',
-		html: './index.html'
-	},
+	// entry: {
+	// 	javascript: './app.jsx',
+	// 	html: './index.html'
+	// },
+	// entry: {
+	// 	javascript: '.\\app\\app.jsx'
+	// },
+	entry: [
+		'./app.jsx'
+	],
 	output: {
 		filename: 'app.js',
 		path: path.join(__dirname, '/dist')
@@ -22,10 +29,10 @@ module.exports = {
 				test: /\.css$/,
 				loader: 'style-loader!css-loader'
 			},
-			{
-				test: /\.html$/,
-				loader: 'file?name=[name].[ext]'
-			},
+			// {
+			// 	test: /\.html$/,
+			// 	loader: 'file?name=[name].[ext]'
+			// },
 			{
 				test: /\.jsx?$/,
 				exclude: /(node_modules|bower_components)/,

@@ -1,8 +1,8 @@
-import React from "react";
 import { render } from 'react-dom';
-import Greeting from "./greeting.jsx";
+import React from 'react';
+import User from './components/friends/User.jsx';
 
 render(
-  <Greeting name="World"></Greeting>,
-  document.getElementById('app')
+	<User />,
+	document.getElementById('app')
 );
